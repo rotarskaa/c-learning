@@ -145,6 +145,19 @@ int main(){
     int wybor;
     struct Student uczniowie[10];
     int ilosc_uczniow=0;
+    FILE *plik = fopen("projekt.txt", "r");
+    if(plik!=NULL){
+
+    while(ilosc_uczniow<10 && 
+    fscanf(plik, "%29s %d %lf %d",
+    uczniowie[ilosc_uczniow].imie,
+&uczniowie[ilosc_uczniow].wiek, 
+&uczniowie[ilosc_uczniow].cena,
+&uczniowie[ilosc_uczniow].liczba_lekcji) == 4){
+    ilosc_uczniow++;
+}
+
+fclose(plik);}
 
     do{
         menu();
